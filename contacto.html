@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Finca Los Olivos</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo"><i class="ti ti-tree"></i> Finca Los Olivos</a>
+        <div class="nav-links">
+            <a href="inicio.html">Inicio</a>
+            <a href="historia.html">Historia</a>
+            <a href="galeria.html">Galería</a>
+            <a href="tours.html">Tours</a>
+            <a href="hospedaje.html">Hospedaje</a>
+            <a href="ubicacion.html">Ubicación</a>
+            <a href="contacto.html" class="active">Contacto</a>
+        </div>
+        <a href="contacto.html" class="nav-btn">Reservar</a>
+    </nav>
+
+    <section class="page-hero">
+        <div class="section-label">Contacto</div>
+        <h1>Escríbenos</h1>
+        <p>Estamos para ayudarte a planificar tu visita perfecta</p>
+    </section>
+
+    <section class="section">
+        <div class="contact-grid">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="ti ti-map-pin"></i></div>
+                    <div><strong>Ubicación</strong>
+                        <p>Ibarra, Imbabura, Ecuador</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="ti ti-brand-whatsapp"></i></div>
+                    <div><strong>WhatsApp</strong>
+                        <p>+593 99 720 1130</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="ti ti-mail"></i></div>
+                    <div><strong>Correo</strong>
+                        <p>rgobandon@gmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="ti ti-clock"></i></div>
+                    <div><strong>Atención</strong>
+                        <p>Lunes a domingo · 8:00 – 18:00</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-item-icon"><i class="ti ti-brand-instagram"></i></div>
+                    <div><strong>Redes sociales</strong>
+                        <p>@fincalosolivos</p>
+                    </div>
+                </div>
+
+                <!-- BOTONES DIRECTOS -->
+                <div class="contact-direct">
+                    <p class="contact-direct-label">Contáctanos directamente</p>
+                    <a href="https://wa.me/593990000000?text=Hola,%20me%20interesa%20Finca%20Los%20Olivos"
+                        class="btn-whatsapp" target="_blank">
+                        <i class="ti ti-brand-whatsapp"></i> Abrir WhatsApp
+                    </a>
+                    <a href="mailto:info@fincalosolivos.ec" class="btn-email">
+                        <i class="ti ti-mail"></i> Enviar correo
+                    </a>
+                </div>
+            </div>
+
+            <!-- FORMULARIO → WHATSAPP -->
+            <div>
+                <p class="form-titulo"><i class="ti ti-brand-whatsapp"></i> El mensaje llegará directo a nuestro
+                    WhatsApp</p>
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" placeholder="Tu nombre completo" />
+                </div>
+                <div class="form-group">
+                    <label for="telefono">Tu teléfono (opcional)</label>
+                    <input type="tel" id="telefono" placeholder="+593 99 000 0000" />
+                </div>
+                <div class="form-group">
+                    <label for="asunto">¿Qué te interesa?</label>
+                    <select id="asunto">
+                        <option value="hospedaje">Hospedaje</option>
+                        <option value="tour">Tours y actividades</option>
+                        <option value="camping">Camping</option>
+                        <option value="otro">Otra consulta</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" placeholder="Escribe tu consulta aquí..."></textarea>
+                </div>
+                <button class="form-btn" onclick="enviarWhatsApp()">
+                    <i class="ti ti-brand-whatsapp"></i> Enviar por WhatsApp
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function enviarWhatsApp() {
+            const nombre = document.getElementById('nombre').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const asunto = document.getElementById('asunto').value;
+            const mensaje = document.getElementById('mensaje').value.trim();
+
+            if (!nombre || !mensaje) {
+                alert('Por favor completa tu nombre y mensaje.');
+                return;
+            }
+
+            const asuntoTexto = {
+                hospedaje: 'Hospedaje',
+                tour: 'Tours y actividades',
+                camping: 'Camping',
+                otro: 'Otra consulta'
+            }[asunto];
+
+            const texto =
+                `Hola, soy *${nombre}*.\n` +
+                `📌 *Interés:* ${asuntoTexto}\n` +
+                (telefono ? `📞 *Mi teléfono:* ${telefono}\n` : '') +
+                `💬 *Mensaje:* ${mensaje}`;
+
+            const url = `https://wa.me/593990000000?text=${encodeURIComponent(texto)}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+    <a href="https://wa.me/593990000000?text=Hola,%20me%20interesa%20Finca%20Los%20Olivos" class="whatsapp-float"
+        target="_blank">
+        <i class="ti ti-brand-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Escríbenos!</span>
+    </a>
+
+    <footer class="footer">
+        <p>© 2025 Finca Los Olivos · Ibarra, Ecuador</p>
+        <div class="footer-social">
+            <a href="#"><i class="ti ti-brand-instagram"></i></a>
+            <a href="#"><i class="ti ti-brand-facebook"></i></a>
+            <a href="#"><i class="ti ti-brand-tiktok"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>

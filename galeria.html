@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Galería | Finca Los Olivos</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo"><i class="ti ti-tree"></i> Finca Los Olivos</a>
+        <div class="nav-links">
+            <a href="inicio.html">Inicio</a>
+            <a href="historia.html">Historia</a>
+            <a href="galeria.html" class="active">Galería</a>
+            <a href="tours.html">Tours</a>
+            <a href="hospedaje.html">Hospedaje</a>
+            <a href="ubicacion.html">Ubicación</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
+        <a href="contacto.html" class="nav-btn">Reservar</a>
+    </nav>
+
+    <section class="page-hero">
+        <div class="section-label">Galería</div>
+        <h1>Conoce la finca</h1>
+        <p>Imágenes reales de nuestros espacios, paisajes y momentos inolvidables</p>
+    </section>
+
+    <section class="section">
+        <h1 class="section-title">Nuestros espacios</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/25.jpeg" alt="Vista" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/7.jpeg" alt="Cabaña" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/11.jpeg" alt="Paisaje" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/9.jpeg" alt="Hospedaje" /></div>
+        </div>
+
+        <h1 class="section-title">Nuestras vistas</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/1.jpeg" alt="Vista" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/27.jpeg" alt="Fogata" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/14.jpeg" alt="Paisaje" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/16.jpeg" alt="Actividades" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/19.jpeg" alt="Hospedaje" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/23.jpeg" alt="Piscina" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/12.jpeg" alt="Fogata" /></div>
+                        <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/21.jpeg" alt="Actividades" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/20.jpeg" alt="Hospedaje" /></div>
+            
+        </div>
+
+        <h1 class="section-title">Nuestros productos</h1>
+        <div class="gallery-grid">
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/2.jpeg" alt="Senderismo" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/24.jpeg" alt="Fogata" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/4.jpeg" alt="Piscina" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/5.jpeg" alt="Fogata" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/13.jpeg" alt="Hospedaje" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/28.jpeg" alt="Hospedaje" /></div>
+
+        </div>
+
+
+        <h1 class="section-title">Nuestros animalitos</h1>
+        <div class="gallery-grid">
+
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/6.jpeg" alt="Paisaje" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/10.jpeg" alt="Fogata" /></div>
+            <div class="gallery-item" onclick="abrirLightbox(this)"><img src="fotos/22.jpeg" alt="Actividades" /></div>
+
+        </div>
+
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="cerrarLightbox()">
+        <button class="lightbox-close" onclick="cerrarLightbox()"><i class="ti ti-x"></i></button>
+        <button class="lightbox-prev" onclick="event.stopPropagation(); cambiarFoto(-1)"><i
+                class="ti ti-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+        <button class="lightbox-next" onclick="event.stopPropagation(); cambiarFoto(1)"><i
+                class="ti ti-chevron-right"></i></button>
+        <span class="lightbox-counter" id="lightbox-counter"></span>
+    </div>
+
+    <script>
+        const items = document.querySelectorAll('.gallery-item');
+        let actual = 0;
+
+        function abrirLightbox(el) {
+            const imgs = Array.from(items);
+            actual = imgs.indexOf(el);
+            mostrarFoto(actual);
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function cerrarLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function cambiarFoto(dir) {
+            actual = (actual + dir + items.length) % items.length;
+            mostrarFoto(actual);
+        }
+
+        function mostrarFoto(i) {
+            const src = items[i].querySelector('img').src;
+            const alt = items[i].querySelector('img').alt;
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-img').alt = alt;
+            document.getElementById('lightbox-counter').textContent = (i + 1) + ' / ' + items.length;
+        }
+
+        document.addEventListener('keydown', e => {
+            const lb = document.getElementById('lightbox');
+            if (!lb.classList.contains('active')) return;
+            if (e.key === 'ArrowLeft') cambiarFoto(-1);
+            if (e.key === 'ArrowRight') cambiarFoto(1);
+            if (e.key === 'Escape') cerrarLightbox();
+        });
+    </script>
+
+    <a href="https://wa.me/593990000000?text=Hola,%20me%20interesa%20Finca%20Los%20Olivos" class="whatsapp-float"
+        target="_blank">
+        <i class="ti ti-brand-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Escríbenos!</span>
+    </a>
+
+    <footer class="footer">
+        <p>© 2025 Finca Los Olivos · Ibarra, Ecuador</p>
+        <div class="footer-social">
+            <a href="#"><i class="ti ti-brand-instagram"></i></a>
+            <a href="#"><i class="ti ti-brand-facebook"></i></a>
+            <a href="#"><i class="ti ti-brand-tiktok"></i></a>
+        </div>
+    </footer>
+
+</body>
+
+</html>
