@@ -14,8 +14,8 @@
 
     <nav class="nav">
         <a href="index.html" class="nav-logo"><i class="ti ti-tree"></i> Finca Los Olivos</a>
-        <div class="nav-links">
-            <a href="inicio.html">Inicio</a>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Inicio</a>
             <a href="historia.html" class="active">Historia</a>
             <a href="galeria.html">Galería</a>
             <a href="tours.html">Tours</a>
@@ -24,6 +24,11 @@
             <a href="contacto.html">Contacto</a>
         </div>
         <a href="contacto.html" class="nav-btn">Reservar</a>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
     <section class="page-hero">
@@ -49,7 +54,6 @@
                 <p class="productos-titulo">Nuestros productos</p>
                 <div class="productos-grid">
                     <div class="producto-item"><i class="ti ti-apple"></i><span>Frutas frescas</span></div>
-                                   
                     <div class="producto-item"><i class="ti ti-plant-2"></i><span>Hierbas medicinales</span></div>
                     <div class="producto-item"><i class="ti ti-mountain"></i><span>Animales de granja</span></div>
                     <div class="producto-item"><i class="ti ti-walk"></i><span>Miel orgánica</span></div>
@@ -73,6 +77,22 @@
             <a href="#"><i class="ti ti-brand-tiktok"></i></a>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('nav-links');
+            const btn = document.getElementById('hamburger');
+            nav.classList.toggle('open');
+            btn.classList.toggle('open');
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(a => {
+            a.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('open');
+                document.getElementById('hamburger').classList.remove('open');
+            });
+        });
+    </script>
 
 </body>
 
