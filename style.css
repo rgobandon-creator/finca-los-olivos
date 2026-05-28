@@ -887,3 +887,27 @@ a { text-decoration: none; color: inherit; }
   .hero h1 { font-size: 22px; }
   .section-title { font-size: 18px; }
 }
+/* ================= MENÚ ADAPTABLE PARA MÓVILES ================= */
+@media (max-width: 768px) {
+    /* Si tu menú de navegación usa una lista o contenedor flexible, lo alineamos en vertical */
+    nav, .nav-container, .menu-navegacion { 
+        flex-direction: column !important;
+        height: auto !important;
+        padding: 15px 0;
+    }
+
+    /* Forzamos a que los enlaces de las pestañas se apilen uno debajo del otro */
+    nav a, .menu-navegacion a {
+        display: block !important;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0 !important; /* Espacio cómodo para tocar con el dedo */
+        font-size: 16px;
+    }
+
+    /* Si tienes el botón "Reservar", le damos un espacio arriba para que no se pegue */
+    .btn-reservar, nav .btn {
+        margin-top: 10px;
+        display: inline-block;
+    }
+}
