@@ -1,30 +1,47 @@
-<!DOCTYPE html>
-<html lang="es">
+<!-- Reemplaza el <nav> en TODOS tus archivos HTML con este -->
+<nav class="nav">
+    <a href="index.html" class="nav-logo"><i class="ti ti-tree"></i> Finca Los Olivos</a>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contacto | Finca Los Olivos</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-</head>
+    <!-- Cambia class="active" en el enlace de la página actual -->
+    <div class="nav-links" id="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href="historia.html">Historia</a>
+        <a href="galeria.html">Galería</a>
+        <a href="tours.html">Tours</a>
+        <a href="hospedaje.html">Hospedaje</a>
+        <a href="ubicacion.html">Ubicación</a>
+        <a href="contacto.html" class="active">Contacto</a>
+    </div>
+
+    <a href="contacto.html" class="nav-btn">Reservar</a>
+
+    <!-- Botón hamburguesa -->
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        const btn = document.getElementById('hamburger');
+        nav.classList.toggle('open');
+        btn.classList.toggle('open');
+    }
+
+    // Cerrar menú al hacer clic en un enlace
+    document.querySelectorAll('.nav-links a').forEach(a => {
+        a.addEventListener('click', () => {
+            document.getElementById('nav-links').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
+        });
+    });
+</script>
 
 <body>
 
-    <nav class="nav">
-        <a href="index.html" class="nav-logo"><i class="ti ti-tree"></i> Finca Los Olivos</a>
-        <div class="nav-links">
-            <a href="inicio.html">Inicio</a>
-            <a href="historia.html">Historia</a>
-            <a href="galeria.html">Galería</a>
-            <a href="tours.html">Tours</a>
-            <a href="hospedaje.html">Hospedaje</a>
-            <a href="ubicacion.html">Ubicación</a>
-            <a href="contacto.html" class="active">Contacto</a>
-        </div>
-        <a href="contacto.html" class="nav-btn">Reservar</a>
-    </nav>
 
     <section class="page-hero">
         <div class="section-label">Contacto</div>
