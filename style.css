@@ -5,6 +5,8 @@ body {
   font-family: 'Inter', sans-serif;
   color: #1a1a1a;
   background: #ffffff;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 a { text-decoration: none; color: inherit; }
@@ -52,7 +54,7 @@ a { text-decoration: none; color: inherit; }
 /* ===== HERO ===== */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-              url('fotos/hero.jpg') center center / cover no-repeat;
+              url('fotos/fondo.jpeg') center center / cover no-repeat;
   padding: 72px 32px 60px;
   text-align: center;
   min-height: 480px;
@@ -73,8 +75,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .hero h1 {
-  font-size: 36px;
-  font-weight: 600;
+  font-size: 42px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
   color: #EAF3DE;
   margin-bottom: 12px;
   line-height: 1.2;
@@ -133,8 +136,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .section-title {
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
   margin-bottom: 6px;
 }
 
@@ -530,25 +534,26 @@ a { text-decoration: none; color: inherit; }
 /* ===== PAGE HERO (páginas internas) ===== */
 .page-hero {
   background: linear-gradient(160deg, #1a3a0a 0%, #2d5c12 60%, #3B6D11 100%);
-  padding: 48px 32px 40px;
+  padding: 64px 32px 52px;
   text-align: center;
 }
 
 .page-hero .section-label { margin-bottom: 8px; }
 
 .page-hero h1 {
-  font-size: 28px;
-  font-weight: 600;
+  font-size: 32px;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
   color: #EAF3DE;
   margin-bottom: 10px;
 }
 
 .page-hero p {
-  font-size: 14px;
+  font-size: 15px;
   color: #C0DD97;
   max-width: 420px;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 /* ===== BOTÓN TOUR ===== */
