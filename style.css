@@ -54,7 +54,7 @@ a { text-decoration: none; color: inherit; }
 /* ===== HERO ===== */
 .hero {
   background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-              url('fotos/fondo.jpeg') center center / cover no-repeat;
+              url('fotos/19.jpeg') center center / cover no-repeat;
   padding: 72px 32px 60px;
   text-align: center;
   min-height: 480px;
